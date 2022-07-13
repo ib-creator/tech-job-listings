@@ -1,136 +1,62 @@
-const jobListing = [
-    {
-        id: 1,
-        title: "Photosnap",
-        title: "Senior Frontend Developer",
-        category: "senior-level",
-        img: "images/red-blue-logo.png",
-        img: "images/new-icon.png",
-        button: "featured",
-        desc: `1d ago &nbsp;&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp;Full Time&nbsp;&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp; UK only`
-    },
+const btns = document.querySelectorAll("level-btn");
 
 
 
-    {
-        id: 2,
-        title: "iTone",
-        title: "Fullstack Developer",
-        category: "mid-level",
-        img: "images/company-logo.png",
-        img: "images/new-icon.png",
-        button: "featured",
-        desc: `1d ago &nbsp;&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp;Part Time&nbsp;&nbsp;&nbsp;• &nbsp;&nbsp; &nbsp; Remote only`
+// the tab that covers the enter job listing section
 
-    },
+const sectionContainer = document.querySelector(".sectioncenter");
 
 
+// the individual divs/boxes 
 
-    {
-        id: 3,
-        title: "Manage",
-        title: "Junior Frontend Developer",
-        category: "entry-level",
-        img: "images/new-icon.png",
-        img: "images/company-logo2.png",
-        desc: `5d ago &nbsp;&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp;Contract&nbsp;&nbsp;&nbsp;•
-        &nbsp;&nbsp;&nbsp; UK only`
+const jobBoxes = document.querySelectorAll("boxes");
 
 
-    },
-
-
-    {
-        id: 4,
-        title: "Restful",
-        title: "Software Engineer",
-        category: "mid-level",
-        img: "images/company-logo3.png",
-        desc: `1w ago &nbsp;&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp;Full-time&nbsp;&nbsp;&nbsp;•
-        &nbsp;&nbsp;&nbsp; Worldwide`
-
-    },
-
-
-    {
-        id: 5,
-        title: "Optimal",
-        title: "Junior Backend Developer",
-        category: "entry-level",
-        img: "Images/company-logo4.png",
-        desc: `3w ago &nbsp;&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp;Full-time&nbsp;&nbsp;&nbsp;•
-        &nbsp;&nbsp;&nbsp; UK only`
-    },
-
-
-    {
-        id: 6,
-        title: "Barcelle",
-        title: "Junior Web Developer",
-        category: "entry-level",
-        img: "Images/company-logo5.png",
-        desc: `3w ago &nbsp;&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp;Full-time&nbsp;&nbsp;&nbsp;•
-        &nbsp;&nbsp;&nbsp; UK only`
-
-    },
-
-
-    {
-        id: 7,
-        title: "Afitis",
-        title: "Fullstack Engineer",
-        category: "entry-level",
-        img: "Images/company-logo6.png",
-        desc: `2w ago &nbsp;&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp;Part-time&nbsp;&nbsp;&nbsp;•
-        &nbsp;&nbsp;&nbsp; Europe only`
-    },
+// e is to access my event object
 
 
 
-    {
-        id: 8,
-        title: "Tates",
-        title: "Software Engineer",
-        category: "mid-level",
-        img: "Images/company-logo7.png",
-        desc: `4w ago &nbsp;&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp;Full-time&nbsp;&nbsp;&nbsp;•
-        &nbsp;&nbsp;&nbsp; USA only`
-
-    },
+// I want to run a function that retrieves the iD that I have  // i have added this before creating the IF statement as the if statements 
+// needs the ID's to refer to 
+sectionContainer.addEventListener("click", function (e) {
 
 
-    {
-        id: 9,
-        title: "Arrow",
-        title: "Backend Developer",
-        category: "senior-level",
-        img: "Images/company-logo8.png",
-        desc: `5w ago &nbsp;&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp;Full-time&nbsp;&nbsp;&nbsp;•
-        &nbsp;&nbsp;&nbsp; UK - Remote only`
-
-    },
+    const id = e.target.dataset.id;
 
 
-    {
-        id: 10,
-        title: "Green O",
-        title: "Frontend Developer",
-        category: "mid-level",
-        img: "Images/company-logo9.png",
-        desc: `3w ago &nbsp;&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp;Part-time&nbsp;&nbsp;&nbsp;•
-        &nbsp;&nbsp;&nbsp; Worldwide/remote`
-
-    },
+    if (id) {
 
 
-];
+        // remove active from other buttons - "for each button that does not have the ID that matches, remove active". 
+        // if the id on the job description boxes do not match the ones on the filter buttons, remove them
+        // for each i.e. for every button, run this function 
 
 
-const listingCenter = document.querySelector(".section-container");
+        btns.forEach(function (btns) {
 
 
-window.addEventListener("DOMContentLoaded", function () {
 
-    let displayListings = listing - container.map(function (boxes))
+            btns.classList.remove("active");
+            e.target.classList.add("active");
+
+        });
+
+
+        // hide the other reward tabs
+
+        jobBoxes.forEach(function (jobBoxes) {
+
+            jobBoxes.classList.remove("active");
+
+        });
+
+        // display the boxes with matching id
+        const element = document.getElementById(id);
+
+        element.classList.add("active");
+
+    }
+
 
 });
+
